@@ -31,3 +31,5 @@ runs/
 outputs/
 *.hydra*
 /isaacgymenvs/wandb
+recorded_frames
+ar10_description

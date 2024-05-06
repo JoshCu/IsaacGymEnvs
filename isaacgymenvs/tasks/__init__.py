@@ -47,6 +47,8 @@ from .allegro_hand import AllegroHand
 from .dextreme.allegro_hand_dextreme import AllegroHandDextremeManualDR, AllegroHandDextremeADR
 from .trifinger import Trifinger
 
+from .sawyer.allegro_kuka_regrasping import AllegroSawyerRegrasping
+
 from .allegro_kuka.allegro_kuka_reorientation import AllegroKukaReorientation
 from .allegro_kuka.allegro_kuka_regrasping import AllegroKukaRegrasping
 from .allegro_kuka.allegro_kuka_throw import AllegroKukaThrow
@@ -71,6 +73,7 @@ def resolve_allegro_kuka(cfg, *args, **kwargs):
 
     return subtask_map[subtask_name](cfg, *args, **kwargs)
 
+
 def resolve_allegro_kuka_two_arms(cfg, *args, **kwargs):
     subtask_name: str = cfg["env"]["subtask"]
     subtask_map = dict(
@@ -88,6 +91,7 @@ def resolve_allegro_kuka_two_arms(cfg, *args, **kwargs):
 isaacgym_task_map = {
     "AllegroHand": AllegroHand,
     "AllegroKuka": resolve_allegro_kuka,
+    "AllegroSawyer": AllegroSawyerRegrasping,
     "AllegroKukaTwoArms": resolve_allegro_kuka_two_arms,
     "AllegroHandManualDR": AllegroHandDextremeManualDR,
     "AllegroHandADR": AllegroHandDextremeADR,
